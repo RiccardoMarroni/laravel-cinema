@@ -1,5 +1,6 @@
 <?php 
-$rooms = [
+return[
+'rooms' => [
     [
         'name' => 'sala blu',
         'seats_num' => 100,
@@ -28,4 +29,5 @@ $rooms = [
         'base_price' => 14.50,
         'image' => 'https://canmom.github.io/img/embed/raytracer/nice-falloff.png', // Immagine della sala rossa
     ],
+]
 ];
