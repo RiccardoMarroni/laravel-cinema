@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Movie extends Model
 {
@@ -16,8 +17,7 @@ class Movie extends Model
         'duration',
         'image',
         'director',
-        'trailer',
-        'slug'
+        'trailer'
     ];
 
     public static function generateSlug($title)

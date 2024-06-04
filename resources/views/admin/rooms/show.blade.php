@@ -26,8 +26,8 @@
                 <label for="image">Immagine:</label>
                 <input type="text" id="image" name="image" class="form-control" value="{{ $room->image }}">
             </div>
-            <button type="submit" class="btn btn-primary">Salva modifiche</button>
-            <a href="{{ route('admin.rooms.index') }}" class="btn btn-secondary">Annulla</a>
+            <!-- <button type="submit" class="btn btn-primary">Salva modifiche</button>
+            <a href="{{ route('admin.rooms.index') }}" class="btn btn-secondary">Annulla</a> -->
         </form>
     </div>
 @endsection
