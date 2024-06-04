@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>Sale</h1>
-    <a href="{{ route('rooms.create') }}">Crea nuova sala</a>
+    <a href="{{ route('admin.rooms.create') }}">Crea nuova sala</a>
     <table>
         <tr>
             <th>Nome</th>
@@ -20,9 +20,9 @@
             <td>{{ $room->base_price }}</td>
             <td><img src="{{ $room->image }}" alt="{{ $room->name }}" width="100"></td>
             <td>
-                <a href="{{ route('rooms.show', $room->id) }}">Mostra</a>
-                <a href="{{ route('rooms.edit', $room->id) }}">Modifica</a>
-                <form action="{{ route('rooms.destroy', $room->id) }}" method="POST" style="display:inline;">
+                <a href="{{ route('admin.rooms.show', $room->id) }}">Mostra</a>
+                <a href="{{ route('admin.rooms.edit', $room->id) }}">Modifica</a>
+                <form action="{{ route('admin.rooms.destroy', $room->id) }}" method="POST" style="display:inline;">
                     @csrf
                     @method('DELETE')
                     <button type="submit">Elimina</button>

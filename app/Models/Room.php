@@ -11,20 +11,15 @@ class Room extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
-        'seat_num',
-        'isense',
-        'base_price',
-        'image',
-        'slug'
-    ]; 
+        'name', 'seats_num', 'isense', 'base_price', 'image'
+    ];
 
 
 public static function generateSlug($name)
 {
     $slug = Str::slug($name, '-');
     $count = 1;
-    while (room::where('slug', $slug)->first()) {
+    while (Room::where('slug', $slug)->first()) {
         $slug = Str::of($name)->slug('-') . "-{$count}";
         $count++;
     }

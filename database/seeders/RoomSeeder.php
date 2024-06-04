@@ -24,6 +24,6 @@ class RoomSeeder extends Seeder
                 'image' => $room['image'],
             ]);
              
+        }
     }
-}
 }
