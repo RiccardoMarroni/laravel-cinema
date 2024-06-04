@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
     <div class="container">
         <h1>Modifica film</h1>
@@ -16,11 +15,11 @@
             </div>
             <div class="form-group">
                 <label for="cast">cast</label>
-                <input type="text" id="text" name="text"  class="form-control" {{ $movie->cast }}>
+                <input type="text" id="cast" name="cast"  class="form-control" value="{{ $movie->cast }}">
             </div>
             <div class="form-group">
                 <label for="duration">Duration:</label>
-                <input type="text" id="duration" name="duration" class="form-control" step="0.01" value="{{ $movie->duration }}" required>
+                <input type="text" id="duration" name="duration" class="form-control"  value="{{ $movie->duration }}" required>
             </div>
             <div class="form-group">
                 <label for="image">Immagine:</label>

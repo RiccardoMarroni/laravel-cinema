@@ -22,7 +22,7 @@ class MovieController extends Controller
 
     public function store(StoreMovieRequest $request)
     {
-        // dd($request->all());
+         
         $form_data = $request->validated();
 
         $new_movie = Movie::create($form_data);
@@ -36,14 +36,16 @@ class MovieController extends Controller
 
     public function edit(Movie $movie)
     {
+        
         return view('admin.movies.edit', compact('movie'));
     }
 
     public function update(Request $request, Movie $movie)
     {
+        // dd($request->all());
         $request->validate([
             'title' => 'required',
-            'descrption' => 'required|string',
+            'description' => 'required|string',
             'cast' => 'nullable|string',
             'duration' => 'required|string',
             'image' => 'nullable|string',
