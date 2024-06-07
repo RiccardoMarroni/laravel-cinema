@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h1>Modifica Sala</h1>
+        <h1>Mostra Sala</h1>
         <form action="{{ route('admin.rooms.update', $room->id) }}" method="POST">
             @csrf
             @method('PATCH')

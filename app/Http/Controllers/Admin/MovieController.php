@@ -9,6 +9,7 @@ use App\Http\Requests\StoreMovieRequest;
 
 class MovieController extends Controller
 {
+    
     public function index()
     {
         $movies = Movie::all();
@@ -63,4 +64,7 @@ class MovieController extends Controller
         $movie->delete();
         return redirect()->route('admin.movies.index')->with('success', 'Movie deleted successfully.');
     }
+    
+   
+    
 }
