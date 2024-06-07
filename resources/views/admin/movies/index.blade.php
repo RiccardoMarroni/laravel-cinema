@@ -1,10 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
     <h1>film</h1>
     <a href="{{ route('admin.movies.create') }}">Crea nuova sala</a>
     <table>
         <tr>
+            
             <th>Title</th>
             <th>Description</th>
             <th>Cast</th>
