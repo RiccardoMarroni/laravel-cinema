@@ -1,33 +1,28 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 
 @section('content')
-    <h1>film</h1>
-    <a href="{{ route('admin.movies.create') }}">Crea nuova sala</a>
+    <h1>Sale</h1>
+    <a href="{{ route('admin.rooms.create') }}">Crea nuova sala</a>
     <table>
         <tr>
-            
-            <th>Title</th>
-            <th>Description</th>
-            <th>Cast</th>
-            <th>Duration</th>
-            <th>Image</th>
-            <th>Director</th>
-            <th>Trailer</th>
+            <th>Nome</th>
+            <th>Posti</th>
+            <th>Isense</th>
+            <th>Prezzo Base</th>
+            <th>Immagine</th>
             <th>Azioni</th>
         </tr>
-        @foreach ($movies as $movie)
+        @foreach ($rooms as $room)
         <tr>
-            <td>{{ $movie->title }}</td>
-            <td>{{ $movie->description }}</td>
-            <td>{{ $movie->cast}}</td>
-            <td>{{ $movie->duration }}</td>
-            <td><img src="{{ $movie->image }}" alt="{{ $movie->name }}" width="100"></td>
-            <td>{{ $movie->director }}</td>
-            <td>{{ $movie->trailer }}</td>
+            <td>{{ $room->name }}</td>
+            <td>{{ $room->seats_num }}</td>
+            <td>{{ $room->isense ? 'Sì' : 'No' }}</td>
+            <td>{{ $room->base_price }}</td>
+            <td><img src="{{ $room->image }}" alt="{{ $room->name }}" width="100"></td>
             <td>
-                <a href="{{ route('admin.movies.show', $movie->id) }}">Mostra</a>
-                <a href="{{ route('admin.movies.edit', $movie->id) }}">Modifica</a>
-                <form action="{{ route('admin.movies.destroy', $movie->id) }}" method="POST" style="display:inline;">
+                <a href="{{ route('admin.rooms.show', $room->id) }}">Mostra</a>
+                <a href="{{ route('admin.rooms.edit', $room->id) }}">Modifica</a>
+                <form action="{{ route('admin.rooms.destroy', $room->id) }}" method="POST" style="display:inline;">
                     @csrf
                     @method('DELETE')
                     <button type="submit">Elimina</button>
