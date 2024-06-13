@@ -33,8 +33,11 @@
                 <label for="trailer">Trailer:</label>
                 <input type="text" id="trailer" name="trailer" class="form-control" value="{{ $movie->trailer }}">
             </div>
-            <!-- <button type="submit" class="btn btn-primary">Salva modifiche</button>
-            <a href="{{ route('admin.movies.index') }}" class="btn btn-secondary">Annulla</a> -->
+            
         </form>
+
+      
+  
+
     </div>
 @endsection

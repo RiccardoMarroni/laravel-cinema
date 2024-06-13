@@ -60,6 +60,7 @@ class ReviewController extends Controller
     public function update(Request $request, Review $review)
     {
         $request->validate([
+            'movie_id'=>'required|string',
             'author' => 'required|string',
             'content' => 'required|string',
             'rating' => 'nullable|string',

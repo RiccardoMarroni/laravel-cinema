@@ -2,9 +2,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Movie;
+use App\Models\Review;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreMovieRequest;
+use App\Http\Requests\StoreReviewRequest;
 
 
 class MovieController extends Controller
