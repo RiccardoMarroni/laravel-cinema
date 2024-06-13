@@ -15,7 +15,7 @@ class ReviewController extends Controller
     public function index()
     {
         $reviews = Review::all();
-        return view('admin.reviews.index', compact('review'));
+        return view('admin.reviews.index', compact('reviews'));
     }
 
     /**
@@ -36,7 +36,7 @@ class ReviewController extends Controller
             'content' => 'required|text',
             'rating' => 'nullable|string',
         ]);
-        $form_data =$request->all();
+        $form_data =$request->validate();
         $new_movie = Review::create($form_data);
         return redirect()->route('admin.reviews.index')->with('success', 'Review created successfully.');
     }
@@ -67,7 +67,9 @@ class ReviewController extends Controller
             'content' => 'required|text',
             'rating' => 'nullable|string',
         ]);
-        $form_data =$request->all();
+
+        $review->update($request->all());
+        return redirect()->route('admin.reviws.index')->with('success', ' updated successfully.');
     }
 
     /**

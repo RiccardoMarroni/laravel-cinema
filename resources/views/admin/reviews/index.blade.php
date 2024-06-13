@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Sale</h1>
-    <a href="{{ route('admin.review.create') }}">Crea nuova sala</a>
+    <a href="{{ route('admin.reviews.create') }}">Crea nuova sala</a>
+    @foreach ($reviews as $review)
     <table>
             <td>
                 <a href="{{ route('admin.reviews.show', $review->id) }}">Mostra</a>
