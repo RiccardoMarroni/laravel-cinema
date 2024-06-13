@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreRoomRequest extends FormRequest
+class StoreReviewRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,8 +23,9 @@ class StoreRoomRequest extends FormRequest
     {
         return [
             'author' => 'required|string',
-            'content' => 'required|text',
+            'content' => 'required|string',
             'rating' => 'nullable|string',
+            'movie_id' => 'nullable|exists:movies,id'
         ];
     }
 }

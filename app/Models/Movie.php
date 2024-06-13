@@ -20,6 +20,12 @@ class Movie extends Model
         'trailer'
     ];
 
+    
+    public function review(){
+
+        return $this->belongsTo(Review::class);
+    }
+
     public static function generateSlug($title)
     {
         $slug = Str::slug($title, '-');

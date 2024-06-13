@@ -29,16 +29,13 @@ class ReviewController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreReviewRequest $request)
     {
-        $request->validate([
-            'author' => 'required|string',
-            'content' => 'required|text',
-            'rating' => 'nullable|string',
-        ]);
-        $form_data =$request->validate();
-        $new_movie = Review::create($form_data);
-        return redirect()->route('admin.reviews.index')->with('success', 'Review created successfully.');
+         
+        $form_data = $request->validated();
+
+        $new_review = Review::create($form_data);
+        return redirect()->route('admin.reviews.index')->with('success', 'Movie created successfully.');
     }
 
     /**
@@ -64,12 +61,12 @@ class ReviewController extends Controller
     {
         $request->validate([
             'author' => 'required|string',
-            'content' => 'required|text',
+            'content' => 'required|string',
             'rating' => 'nullable|string',
         ]);
 
         $review->update($request->all());
-        return redirect()->route('admin.reviws.index')->with('success', ' updated successfully.');
+        return redirect()->route('admin.reviews.index')->with('success', ' updated successfully.');
     }
 
     /**
