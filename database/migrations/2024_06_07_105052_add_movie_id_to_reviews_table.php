@@ -12,9 +12,11 @@ return new class extends Migration
     
     public function up(): void
 {
-    Schema::create('reviews', function (Blueprint $table) {
-        $table->unsignedBigInteger('movie_id')->nullable()->after('review_id');
+    Schema::table('reviews', function (Blueprint $table) {
+        
         $table->foreign('movie_id')->references('id')->on('movies')->onDelete('cascade');
+        
+      
     });
 }
     /**
