@@ -1,10 +1,8 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
 
 class Movie extends Model
 {
@@ -17,23 +15,16 @@ class Movie extends Model
         'duration',
         'image',
         'director',
-        'trailer'
+        'trailer',
     ];
 
-    
-    public function review(){
-
-        return $this->belongsTo(Review::class);
+    public function rooms()
+    {
+        return $this->belongsToMany(Room::class, 'movie_room');
     }
 
-    public static function generateSlug($title)
+    public function reviews()
     {
-        $slug = Str::slug($title, '-');
-        $count = 1;
-        while (Movie::where('slug', $slug)->first()) {
-            $slug = Str::of($title)->slug('-') . "-{$count}";
-            $count++;
-        }
-        return $slug;
+        return $this->hasMany(Review::class);
     }
 }

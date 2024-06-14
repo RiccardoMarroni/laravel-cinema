@@ -2,28 +2,35 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Room;
 
 class RoomSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
-    public function run(): void
+    public function run()
     {
-        $rooms = config('rooms.rooms');
+        Room::create([
+            'name' => 'Kubric (Blue Room)',
+            'seats' => 100,
+            'is_isense' => false,
+        ]);
 
-        foreach ($rooms as $room) {
-            Room::create([
-                'name' => $room['name'],
-                'seats_num' => $room['seats_num'],
-                'isense' => $room['isense'],
-                'base_price' => $room['base_price'],
-                'image' => $room['image'],
-            ]);
-             
-        }
+        Room::create([
+            'name' => 'Spielberg (Green Room)',
+            'seats' => 120,
+            'is_isense' => true,
+        ]);
+
+        Room::create([
+            'name' => 'Hitchcock (Yellow Room)',
+            'seats' => 50,
+            'is_isense' => false,
+        ]);
+
+        Room::create([
+            'name' => 'Miyazaki (Red Room)',
+            'seats' => 50,
+            'is_isense' => false,
+        ]);
     }
 }

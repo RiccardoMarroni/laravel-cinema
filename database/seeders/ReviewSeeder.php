@@ -2,24 +2,27 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Review;
+use App\Models\User;
+use App\Models\Movie;
 
 class ReviewSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
-    public function run(): void
+    public function run()
     {
-        $reviews = config("reviews.reviews");
-        foreach ($reviews as $review){
-            Review::create([
-            'author' => $review['author'],
-            'content' => $review['content'],
-            'rating' => $review['rating'],
-            ]);
+        $users = User::all();
+        $movies = Movie::all();
+
+        foreach ($movies as $movie) {
+            foreach ($users as $user) {
+                Review::create([
+                    'user_id' => $user->id,
+                    'movie_id' => $movie->id,
+                    'content' => 'This is a sample review for ' . $movie->title,
+                    'rating' => rand(1, 5),
+                ]);
+            }
         }
     }
 }

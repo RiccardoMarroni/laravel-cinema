@@ -4,26 +4,23 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
 
 class Room extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'name', 'seats_num', 'isense', 'base_price', 'image'
+        'name',
+        'seats',
+        'is_isense',
     ];
 
+    protected $casts = [
+        'is_isense' => 'boolean',
+    ];
 
-public static function generateSlug($name)
-{
-    $slug = Str::slug($name, '-');
-    $count = 1;
-    while (Room::where('slug', $slug)->first()) {
-        $slug = Str::of($name)->slug('-') . "-{$count}";
-        $count++;
+    public function movies()
+    {
+        return $this->belongsToMany(Movie::class, 'movie_room');
     }
-    return $slug;
 }
-}
-
