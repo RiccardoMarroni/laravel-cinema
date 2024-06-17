@@ -10,7 +10,9 @@ class MovieController extends Controller
 {
     public function index()
     {
-        $movies = Movie::all();
+        
+         $movies = Movie::with('rooms')->get();
+         
         return response()->json([
    
             'success' => true,
@@ -19,9 +21,9 @@ class MovieController extends Controller
             ]);
     }
 
-    public function show($slug)
+    public function show($id)
     {
-        $movie = Movie::where('slug', $slug)->first();
+        $movie = Movie::where('id', $id)->first();
         if($movie){
             return response()->json([
                 'status' => 'success',
