@@ -49,6 +49,7 @@
             <a href="{{ route('movies.index') }}">Movies</a>
             <a href="{{ route('screenings.index') }}">Screenings</a>
            <a href="{{ route('reviews.index') }}">Reviews</a>
+           <a href=""></a>
 
         </div>
         <div class="content">

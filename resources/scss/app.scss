@@ -12,3 +12,11 @@ $fa-font-path: "../fonts/webfonts" !default;
 h1 {
     color: $text-color;
 }
+
+ul {
+    list-style: none;
+}
+
+.button-admin{
+    padding: 50px;
+}
