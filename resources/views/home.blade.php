@@ -22,11 +22,11 @@
         <div class="branding d-flex align-items-cente">
 
             <div class="container position-relative d-flex align-items-center justify-content-between">
-                <a href="index.html" class="logo d-flex align-items-center">
-                    <img src="img/logo.png" alt="Logo">
+             
+                    
                     <h1 class="sitename">Bianca Cinema</h1>
                     <span>.</span>
-                </a>
+                
 
                 <nav id="navmenu" class="navmenu ">
                     <ul>

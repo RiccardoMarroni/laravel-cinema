@@ -11,8 +11,8 @@ class ScreeningController extends Controller
     public function index()
     {
         
-        $screenings = Screening::all();
-        dd($screenings);
+        $screenings = Screening::with(['room', 'movie'])->get();
+        // dd($screenings);
         return response()->json([
             'status' => 'success',
             'message' => 'Ok',
